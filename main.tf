@@ -25,6 +25,14 @@ resource "aws_subnet" "main" {
     Name = "Public"
   }
 }
+resource "aws_subnet" "secondsubnet" {
+  vpc_id     = aws_vpc.Myvpc.id
+  cidr_block = "20.20.2.0/24"
+
+  tags = {
+    Name = "Private"
+  }
+}
 resource "aws_instance" "fristec2" {
   ami           = data.aws_ami.myami.id
   instance_type = "t2.micro"
