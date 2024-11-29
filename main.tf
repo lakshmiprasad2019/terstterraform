@@ -33,6 +33,14 @@ resource "aws_subnet" "secondsubnet" {
     Name = "Private"
   }
 }
+resource "aws_subnet" "secondsubnet" {
+  vpc_id     = aws_vpc.Myvpc.id
+  cidr_block = "20.20.10.0/24"
+
+  tags = {
+    Name = "Private_new"
+  }
+}
 resource "aws_subnet" "secondsubnet1" {
   vpc_id     = aws_vpc.Myvpc.id
   cidr_block = "20.20.3.0/24"
