@@ -33,7 +33,7 @@ resource "aws_subnet" "secondsubnet" {
     Name = "Private"
   }
 }
-resource "aws_subnet" "secondsubnet" {
+resource "aws_subnet" "secondsubnet_10" {
   vpc_id     = aws_vpc.Myvpc.id
   cidr_block = "20.20.10.0/24"
 
