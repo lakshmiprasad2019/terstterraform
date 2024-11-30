@@ -62,6 +62,11 @@ resource "aws_instance" "fristec2" {
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.main.id
 }
+resource "aws_instance" "secondtec2" {
+  ami           = data.aws_ami.myami.id
+  instance_type = "t2.micro"
+  subnet_id     = aws_subnet.main.id
+}
 data "aws_ami" "myami" {
   owners = ["amazon"]
   most_recent = true
