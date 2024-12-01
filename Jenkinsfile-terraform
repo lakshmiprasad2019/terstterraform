@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git check out') {
+            steps {
+                git branch: 'main', url: 'https://github.com/lakshmiprasad2019/terstterraform.git'
+            }
+        }
+        stage('Terraform init') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+        stage('Terraform plan') {
+            steps {
+                sh 'terraform plan -out $BUILD_NUMBER'
+            }
+        }
+        stage('Terraform apply') {
+            steps {
+                sh 'terraform apply $BUILD_NUMBER'
+            }
+        }
+    }
+}
